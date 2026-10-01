@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hearth & Rye Bakery – Fresh bread, baked daily</title>
+<meta name="description" content="Hearth & Rye is a neighbourhood bakery. Sourdough, croissants and cakes baked fresh every morning. Dummy site for demo purposes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --butter:#F5D468; --rye:#2B1E17; --flour:#FFFCF5; --blue:#2F3E7E; --crust:#8A5A2B;
+  --display:"Bricolage Grotesque","Arial Narrow",sans-serif;
+  --body:"Newsreader",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:1.15rem;line-height:1.6;color:var(--rye);background:var(--flour)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--display);line-height:1}
+
+/* header */
+header{background:var(--butter)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;gap:1rem;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:800;font-size:1.25rem;text-decoration:none}
+nav ul{display:flex;gap:1.5rem;list-style:none;padding:0}
+nav a{text-decoration:none;font-weight:600}
+nav a:hover{text-decoration:underline}
+
+/* hero */
+.hero{padding:3rem 0 4rem}
+.hero h1{font-weight:800;font-size:clamp(3.2rem,12vw,8.5rem);letter-spacing:-.04em}
+.hero p{max-width:34rem;margin:1.5rem 0 2rem;font-size:1.3rem}
+.btn{display:inline-block;background:var(--rye);color:var(--flour);padding:.85rem 1.6rem;border:0;border-radius:999px;font:600 1rem var(--display);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--blue)}
+
+/* sections */
+section{padding:4rem 0}
+h2{font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;margin-bottom:.5rem}
+.lede{max-width:36rem;margin-bottom:2rem}
+
+/* menu board */
+.board{background:var(--rye);color:var(--flour);padding:2rem;border-radius:1.25rem}
+.board h2{color:var(--butter)}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.25rem 0}
+.filters button{font:600 .95rem var(--display);background:transparent;color:var(--flour);border:2px solid var(--flour);border-radius:999px;padding:.4rem 1rem;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--butter);color:var(--rye);border-color:var(--butter)}
+.items{list-style:none;padding:0}
+.items li{display:flex;align-items:baseline;gap:.75rem;padding:.9rem 0;border-bottom:1px dashed rgba(255,252,245,.35)}
+.items li[hidden]{display:none}
+.items strong{font-family:var(--display);font-size:1.35rem;font-weight:500}
+.items em{opacity:.75;font-size:1rem}
+.items .fill{flex:1}
+.price{font-family:var(--display);font-weight:800;color:var(--butter)}
+
+/* info */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:3rem}
+.info h3{font-size:1.5rem;margin-bottom:.75rem;color:var(--blue)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.5rem}
+
+/* order */
+.order{background:var(--blue);color:var(--flour)}
+.order h2{color:var(--butter)}
+form{display:grid;gap:1rem;max-width:30rem;margin-top:1.5rem}
+label{display:grid;gap:.3rem;font-weight:600}
+input,select,textarea{font:inherit;padding:.7rem .9rem;border:2px solid transparent;border-radius:.6rem;background:var(--flour);color:var(--rye)}
+.order .btn{background:var(--butter);color:var(--rye);justify-self:start}
+.order .btn:hover{background:var(--flour)}
+#msg{min-height:1.6em;font-weight:600}
+
+footer{padding:2rem 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:560px){.board{padding:1.25rem}.items strong{font-size:1.15rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#top">Hearth & Rye</a>
+      <ul>
+        <li><a href="#menu">Today's bake</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#order">Pre-order</a></li>
+      </ul>
+    </nav>
+    <div class="hero" id="top">
+      <h1>First loaf<br>out at 7.</h1>
+      <p>A small neighbourhood bakery. Slow-fermented sourdough, buttery croissants and cakes made to order. Everything is baked the same morning you buy it.</p>
+      <a class="btn" href="#order">Reserve your loaf</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="menu">
+    <div class="wrap">
+      <div class="board">
+        <h2>Today's bake</h2>
+        <p>Menu changes with the oven. When it's gone, it's gone.</p>
+        <div class="filters" role="group" aria-label="Filter menu">
+          <button aria-pressed="true" data-f="all">All</button>
+          <button aria-pressed="false" data-f="bread">Bread</button>
+          <button aria-pressed="false" data-f="pastry">Pastries</button>
+          <button aria-pressed="false" data-f="cake">Cakes</button>
+        </div>
+        <ul class="items">
+          <li data-c="bread"><strong>Country sourdough</strong><em>48-hour ferment</em><span class="fill"></span><span class="price">₹260</span></li>
+          <li data-c="bread"><strong>Rye &amp; seed loaf</strong><em>dense, nutty</em><span class="fill"></span><span class="price">₹290</span></li>
+          <li data-c="bread"><strong>Soft milk buns (4)</strong><em>good with butter</em><span class="fill"></span><span class="price">₹120</span></li>
+          <li data-c="pastry"><strong>Butter croissant</strong><em>laminated by hand</em><span class="fill"></span><span class="price">₹140</span></li>
+          <li data-c="pastry"><strong>Cardamom bun</strong><em>sticky, spiced</em><span class="fill"></span><span class="price">₹110</span></li>
+          <li data-c="pastry"><strong>Almond danish</strong><em>frangipane filling</em><span class="fill"></span><span class="price">₹160</span></li>
+          <li data-c="cake"><strong>Dark chocolate cake (slice)</strong><em>flourless</em><span class="fill"></span><span class="price">₹180</span></li>
+          <li data-c="cake"><strong>Orange olive oil cake</strong><em>whole cake, 6 inch</em><span class="fill"></span><span class="price">₹750</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap info">
+      <div>
+        <h3>Opening hours</h3>
+        <div class="hours">
+          <span>Mon – Fri</span><span>7:00 am – 7:00 pm</span>
+          <span>Saturday</span><span>7:00 am – 8:00 pm</span>
+          <span>Sunday</span><span>8:00 am – 2:00 pm</span>
+        </div>
+      </div>
+      <div>
+        <h3>Find us</h3>
+        <p>12 Market Lane<br>Your Town, 000000<br><a href="tel:+910000000000">+91 00000 00000</a><br><a href="mailto:hello@example.com">hello@example.com</a></p>
+      </div>
+      <div>
+        <h3>Good to know</h3>
+        <p>Sourdough sells out by noon on weekends. Custom cakes need 48 hours' notice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="wrap">
+      <h2>Pre-order for pickup</h2>
+      <p class="lede">Tell us what you'd like and when you'll collect it. We'll confirm by phone.</p>
+      <form id="orderForm">
+        <label>Name <input name="name" required autocomplete="name"></label>
+        <label>Phone <input name="phone" type="tel" required autocomplete="tel"></label>
+        <label>Item
+          <select name="item">
+            <option>Country sourdough</option><option>Rye &amp; seed loaf</option>
+            <option>Butter croissant</option><option>Orange olive oil cake</option>
+          </select>
+        </label>
+        <label>Pickup date <input name="date" type="date" required></label>
+        <label>Notes <textarea name="notes" rows="3"></textarea></label>
+        <button class="btn" type="submit">Send pre-order</button>
+        <p id="msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Hearth &amp; Rye Bakery</span>
+    <span>Demo site. Not a real business.</span>
+  </div>
+</footer>
+
+<script>
+// Menu filter
+const btns=document.querySelectorAll('.filters button'),rows=document.querySelectorAll('.items li');
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
+  rows.forEach(r=>r.hidden=b.dataset.f!=='all'&&r.dataset.c!==b.dataset.f);
+}));
+// Pre-order form (demo only: nothing is sent anywhere)
+const f=document.getElementById('orderForm');
+f.date.min=new Date().toISOString().split('T')[0];
+f.addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('msg').textContent=
+    `Thanks ${f.name.value}! Your ${f.item.value} is noted for ${f.date.value}. (Demo: no order was sent.)`;
+  f.reset();
+});
+</script>
+</body>
+</html>
